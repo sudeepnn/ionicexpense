@@ -1,0 +1,49 @@
+
+  <!-- <ion-toolbar>
+    <ion-title>Day {{ day }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar> -->
+
+
+
+  <div class="maincon">
+    <div class="top">
+      <h2> {{ day +'-'+month+1+'-'+year }}</h2>
+      
+      <img class="cross" (click)="closeModal()" src="assets/icon/cross-small.png" alt="" srcset="">
+    </div>
+
+    <p>Total expenditure: {{ val | currency: 'INR' : 'symbol' }}</p>
+
+    <!-- Item list with delete functionality -->
+    <div class="allitemlist">
+      <ion-list>
+        <ion-item *ngFor="let item of items">
+          <ion-label>
+            <p>{{ item.itemname }}: {{ item.amount | currency: 'INR' : 'symbol' }}</p>
+          </ion-label>
+          <button (click)="onDeleteItem(item.itemname)" class="trashbtn"><img class="trash" src="assets/icon/trash.png" alt=""></button>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <!-- Input fields to add new item -->
+    <div class="new-expenditure">
+      <h5>New expenditure</h5>
+      <ion-item>
+        <ion-input [(ngModel)]="newitemname" placeholder="Enter Item Name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="newitemamount" type="number" placeholder="Enter Amount"></ion-input>
+      </ion-item>
+      <ion-button expand="full" shape="round" [style.--background]="'#92a7fd'" (click)="onAddItem()">Add Item</ion-button>
+    </div>
+    
+
+    
+  </div>
+

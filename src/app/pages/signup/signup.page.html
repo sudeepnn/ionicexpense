@@ -1,0 +1,83 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Signup</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <div class="header">
+    <!--Content before waves-->
+    <div class="inner-header flex">
+      <div class="container">
+        <h1>Signup</h1>
+        <form (ngSubmit)="onSubmit()">
+          <!-- Username Input -->
+          <ion-item class="custom-input">
+            <img src="assets/icon/user.png" alt="User Icon" class="input-icon">
+            <input 
+              type="text" 
+              placeholder="Name"
+              [(ngModel)]="signupData.username" 
+              name="username" 
+              required>
+            
+          </ion-item>
+
+          <!-- Email Input -->
+          <ion-item class="custom-input">
+            <img src="assets/icon/user.png" alt="Email Icon" class="input-icon">
+            <input 
+              type="email" 
+              placeholder="Email"
+              [(ngModel)]="signupData.email" 
+              name="email" 
+              required>
+            
+          </ion-item>
+
+          <!-- Password Input -->
+          <ion-item class="custom-input">
+            <img src="assets/icon/lock.png" alt="Password Icon" class="input-icon">
+            <input 
+              type="password" 
+              placeholder="Password"
+              [(ngModel)]="signupData.password" 
+              name="password" 
+              required>
+            
+          </ion-item>
+
+          <!-- Confirm Password Input -->
+          
+         
+
+          <!-- Signup Button -->
+          <ion-button class="custom-login-btn"  type="submit" >Signup</ion-button>
+        </form>
+      </div>
+    </div>
+    
+    <!--Waves Container-->
+    <div>
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+          <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+        </g>
+      </svg>
+    </div>
+    <!--Waves end-->
+  </div>
+
+  <!-- End Content -->
+  <div class="endcon">
+    <p style="margin-bottom: -10px;">Already have an account?</p>
+    <ion-button fill="clear" (click)="login()" color="primary">Login</ion-button>
+  </div>
+</ion-content>

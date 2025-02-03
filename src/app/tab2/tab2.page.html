@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> {{ selectedYear }} {{ months[selectedMonth] }} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="calendar-content">
+  <div class="maincon">
+    
+      
+    <div class="topcon">
+      <h2>Your  <span>{{selectedYear}} {{months[selectedMonth]}}</span> Calendar</h2>
+      <div class="middle">
+        <div class="calendar-grid mt-4 weeksdiv">
+          <div class="calendar-day btn btn-outline-secondary" *ngFor="let day of weekDays">
+            {{ day }}
+          </div>
+        </div>
+  
+        <div class="calendar-grid mt-2">
+          <div class="calendar-day btn btn-outline-secondary" *ngFor="let day of daysInMonth"
+            [ngClass]="{'clickable': day !== null}"
+            (click)="openDayModal(day, selectedMonth, selectedYear, transactionsForDay[day] || 0)"  >
+            <div>
+              {{ day }}
+              <div *ngIf="transactionsForDay[day]">
+                <strong>{{ transactionsForDay[day]  }}</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bottombtn">
+        <button class="mybtn" (click)="prevMonth()">Previous Month</button>
+        <button class="mybtn" (click)="nextMonth()">Next Month</button>
+      </div>
+      <p>Track your transactions day by day!</p>
+    </div>
+   
+  </div>
+  
+  
+</ion-content>

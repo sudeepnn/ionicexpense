@@ -1,0 +1,7 @@
+{
+  "name": "expense",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

@@ -1,0 +1,26 @@
+<div class="main">
+  
+
+
+<ion-card class="profile-card">
+  <ion-card-header>
+   <div class="top">
+    <ion-avatar class="profile-avatar">
+      <img [src]="'assets/icon/' + user.profileimg" alt="Profile Picture">
+    </ion-avatar>
+    <ion-card-title class="title">{{ user.username }}</ion-card-title>
+    <ion-card-subtitle>{{ user.nickname }}</ion-card-subtitle>
+   </div>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p>Email: {{ user.email }}</p>
+    <p>Phone: {{ user.phone }}</p>
+    <p>Location: {{ user.location }}</p>
+  </ion-card-content>
+
+  <ion-button class="mybtn"  [style.--background]="'#92a7fd'" expand="full" shape="round" (click)="editProfile()">Edit Profile</ion-button>
+  <ion-button expand="full" [style.--background]="'#f54848'" shape="round" color="danger" (click)="logout()">Logout</ion-button>
+</ion-card>
+
+</div>

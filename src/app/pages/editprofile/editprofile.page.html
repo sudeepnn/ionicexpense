@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit Profile</ion-title>
+    <ion-buttons slot="end">
+      <img class="cross" (click)="closeModal()" src="assets/icon/cross-small.png" alt="" srcset="">
+      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Avatar Section -->
+  <div class="avatar-container">
+    <ion-avatar>
+      <img [src]="'assets/icon/' + user.profileimg" alt="Profile Picture">
+    </ion-avatar>
+    <!-- <ion-button   fill="outline" (click)="showAvatarSlider = !showAvatarSlider">Change Avatar</ion-button>
+      -->
+      <ion-button fill="outline"
+      [style.--border-color]="'#92a7fd'"
+      [style.--color]="'#92a7fd'"
+      (click)="showAvatarSlider = !showAvatarSlider">
+      Change Avatar
+    </ion-button>
+  </div>
+
+  <!-- Avatar Slider Section -->
+  <div *ngIf="showAvatarSlider" class="avatar-slider">
+    <ion-slides [options]="slideOpts" (ionSlideDidChange)="onAvatarSlideChange($event)">
+      <ion-slide *ngFor="let avatar of avatars; let i = index">
+        <ion-avatar (click)="selectAvatar(avatar)">
+          <img [src]="'assets/icon/' + avatar" alt="Avatar Option">
+        </ion-avatar>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  
+    <div class="custtomgrp">
+      <div>
+        <label for="">Name</label>
+      </div>
+      <input [(ngModel)]="user.username">
+    </div>
+    
+  
+
+ 
+    <div class="custtomgrp">
+      <div>
+        <label for="">Nickname</label>
+      </div>
+      <input [(ngModel)]="user.nickname">
+    </div>
+ 
+
+  
+    <div class="custtomgrp">
+      <div>
+        <label for="">Phone</label>
+      </div>
+      <input [(ngModel)]="user.phone" type="number">
+    </div>
+    <div class="custtomgrp">
+      <div>
+        <label for="">Location</label>
+      </div>
+      <input [(ngModel)]="user.location">
+    </div>
+    
+  
+
+  
+
+  <ion-button  [style.--background]="'#92a7fd'" expand="full" (click)="saveProfile()">Save Changes</ion-button>
+</ion-content>

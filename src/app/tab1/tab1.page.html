@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      
+      Expenditure trends
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  
+
+ <div class="maincon">
+  <div class="expensechart">
+    <h2>Your monthly expenditure trends are ready for review</h2>
+    
+
+    <img src="assets/icon/business.png" alt="">
+    <p>Let’s make smarter financial decisions together!</p>
+  </div>
+  <div class="expensechart">
+   
+
+    <div *ngIf="monthlyExpenditures.length > 0">
+      <canvas baseChart [data]="chartData" [options]="chartOptions" chartType="line"></canvas>
+    </div>
+
+    
+
+    <!-- <ion-button expand="full" color="primary" (click)="navigateToExpense()">Go to Expenses</ion-button> -->
+  </div>
+ </div>
+
+  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
+</ion-content>
